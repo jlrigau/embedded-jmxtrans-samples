@@ -28,8 +28,6 @@ import org.jmxtrans.embedded.samples.cocktail.cocktail.CocktailRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jmx.export.annotation.ManagedMetric;
-import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,7 +39,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author <a href="mailto:cleclerc@xebia.fr">Cyrille Le Clerc</a>
  */
-@ManagedResource("cocktail:type=ShoppingCartController,name=ShoppingCartController")
 @Controller
 public class ShoppingCartController {
 
@@ -86,25 +83,5 @@ public class ShoppingCartController {
 
         shoppingCartRepository.resetCurrentShoppingCart(request);
         return "redirect:/";
-    }
-
-    @ManagedMetric
-    public int getShoppingCartsPriceInCents() {
-        return shoppingCartsPriceInCents.get();
-    }
-
-    @ManagedMetric
-    public int getSalesRevenueInCentsCounter() {
-        return salesRevenueInCentsCounter.get();
-    }
-
-    @ManagedMetric
-    public int getSalesItemsCounter() {
-        return salesItemsCounter.get();
-    }
-
-    @ManagedMetric
-    public int getSalesOrdersCounter() {
-        return salesOrdersCounter.get();
     }
 }
