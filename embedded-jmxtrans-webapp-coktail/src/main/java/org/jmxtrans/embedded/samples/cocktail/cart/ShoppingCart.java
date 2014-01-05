@@ -70,7 +70,7 @@ public class ShoppingCart implements Serializable {
     /**
      * Price in dollars
      */
-    public String getPrettyPrice(){
+    public String getPrettyPrice() {
         BigDecimal priceInDollars = new BigDecimal(getPriceInCents()).movePointLeft(2);
         return NumberFormat.getCurrencyInstance(Locale.US).format(priceInDollars);
     }
