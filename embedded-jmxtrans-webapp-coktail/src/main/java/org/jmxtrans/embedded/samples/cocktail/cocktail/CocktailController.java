@@ -46,20 +46,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Controller
 public class CocktailController {
     private final Logger logger = LoggerFactory.getLogger(getClass());
-    private final AtomicInteger addedCommentCount = new AtomicInteger();
-    private final AtomicInteger displayedCocktailCount = new AtomicInteger();
-    private final AtomicInteger createdCocktailCount = new AtomicInteger();
-    private final AtomicInteger updatedCocktailCount = new AtomicInteger();
-    private final AtomicInteger searchedCocktailCount = new AtomicInteger();
-    private final AtomicInteger displayedHomeCount = new AtomicInteger();
-
 
     @Autowired
     private CocktailRepository cocktailRepository;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home() {
-        displayedHomeCount.incrementAndGet();
         return "welcome";
     }
 
@@ -73,7 +65,6 @@ public class CocktailController {
         logger.debug("Add comment: '{}' to {}", comment, cocktail);
         cocktail.getComments().addFirst(comment);
         cocktailRepository.update(cocktail);
-        addedCommentCount.incrementAndGet();
 
         return "redirect:/cocktail/{id}";
     }
@@ -101,7 +92,6 @@ public class CocktailController {
             throw new CocktailNotFoundException(id);
         }
         model.addAttribute(cocktail);
-        displayedCocktailCount.incrementAndGet();
 
         return "cocktail/view";
     }
@@ -112,32 +102,7 @@ public class CocktailController {
 
         Collection<Cocktail> cocktails = cocktailRepository.find(ingredient, name);
 
-        searchedCocktailCount.incrementAndGet();
         return new ModelAndView("cocktail/view-all", "cocktails", cocktails);
-    }
-
-    public int getAddedCommentCount() {
-        return addedCommentCount.get();
-    }
-
-    public int getCreatedCocktailCount() {
-        return createdCocktailCount.get();
-    }
-
-    public int getDisplayedCocktailCount() {
-        return displayedCocktailCount.get();
-    }
-
-    public int getSearchedCocktailCount() {
-        return searchedCocktailCount.get();
-    }
-
-    public int getUpdatedCocktailCount() {
-        return updatedCocktailCount.get();
-    }
-
-    public int getDisplayedHomeCount() {
-        return displayedHomeCount.get();
     }
 
     /**

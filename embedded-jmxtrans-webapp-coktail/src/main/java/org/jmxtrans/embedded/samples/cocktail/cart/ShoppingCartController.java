@@ -43,10 +43,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ShoppingCartController {
 
     protected final Logger logger = LoggerFactory.getLogger(getClass());
-    protected final AtomicInteger shoppingCartsPriceInCents = new AtomicInteger();
-    protected final AtomicInteger salesRevenueInCentsCounter = new AtomicInteger();
-    protected final AtomicInteger salesItemsCounter = new AtomicInteger();
-    protected final AtomicInteger salesOrdersCounter = new AtomicInteger();
     @Autowired
     ShoppingCartRepository shoppingCartRepository;
     @Autowired
@@ -62,7 +58,6 @@ public class ShoppingCartController {
         }
 
         ShoppingCart shoppingCart = shoppingCartRepository.getCurrentShoppingCart(request);
-        shoppingCartsPriceInCents.addAndGet(quantity * cocktail.getPriceInCents());
         shoppingCart.addItem(cocktail, quantity);
 
         return "redirect:/cocktail/" + cocktailId;
@@ -76,10 +71,6 @@ public class ShoppingCartController {
     @RequestMapping(method = RequestMethod.POST, value = "/cart/buy")
     public String buy(HttpServletRequest request) {
         ShoppingCart shoppingCart = shoppingCartRepository.getCurrentShoppingCart(request);
-
-        salesRevenueInCentsCounter.addAndGet(shoppingCart.getPriceInCents());
-        salesItemsCounter.addAndGet(shoppingCart.getItemsCount());
-        salesOrdersCounter.incrementAndGet();
 
         shoppingCartRepository.resetCurrentShoppingCart(request);
         return "redirect:/";
