@@ -12,7 +12,7 @@
                 "host": "io-graphite-monitoring.aws.xebiatechevent.info",
                 "port": "2003",
                 "enabled": "true",
-                "namePrefix": "cocktail"
+                "namePrefix": "demo"
             }
         }
     ]
