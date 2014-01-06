@@ -38,7 +38,6 @@
     <logger name="org.jmxtrans.embedded" level="warn" />
     <logger name="org.jmxtrans.embedded.output.Slf4jWriter" level="debug" />
 
-
     <root level="warn">
       <appender-ref ref="STDOUT" />
    </root>
