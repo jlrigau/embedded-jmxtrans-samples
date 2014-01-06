@@ -1,10 +1,18 @@
 {
-    "queries": [
+    "outputWriters": [
+        {
+            "@class": "org.jmxtrans.embedded.output.Slf4jWriter",
+            "settings": {
+                "enabled": "${jmxtrans.writer.slf4j.enabled:true}"
+            }
+        },
         {
             "@class": "org.jmxtrans.embedded.output.GraphiteWriter",
             "settings": {
-                "host": "",
-                "port": "2003"
+                "host": "io-graphite-monitoring.aws.xebiatechevent.info",
+                "port": "2003",
+                "enabled": "true",
+                "namePrefix": "cocktail"
             }
         }
     ]
