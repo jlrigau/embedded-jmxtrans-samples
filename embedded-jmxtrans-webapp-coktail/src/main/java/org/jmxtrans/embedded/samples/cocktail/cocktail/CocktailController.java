@@ -43,7 +43,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author <a href="mailto:cleclerc@xebia.fr">Cyrille Le Clerc</a>
  */
-@ManagedResource("cocktail:type=CocktailController,name=CocktailController")
 @Controller
 public class CocktailController {
     private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -117,32 +116,26 @@ public class CocktailController {
         return new ModelAndView("cocktail/view-all", "cocktails", cocktails);
     }
 
-    @ManagedMetric(metricType = MetricType.COUNTER)
     public int getAddedCommentCount() {
         return addedCommentCount.get();
     }
 
-    @ManagedMetric(metricType = MetricType.COUNTER)
     public int getCreatedCocktailCount() {
         return createdCocktailCount.get();
     }
 
-    @ManagedMetric(metricType = MetricType.COUNTER)
     public int getDisplayedCocktailCount() {
         return displayedCocktailCount.get();
     }
 
-    @ManagedMetric(metricType = MetricType.COUNTER)
     public int getSearchedCocktailCount() {
         return searchedCocktailCount.get();
     }
 
-    @ManagedMetric(metricType = MetricType.COUNTER)
     public int getUpdatedCocktailCount() {
         return updatedCocktailCount.get();
     }
 
-    @ManagedMetric(metricType = MetricType.COUNTER)
     public int getDisplayedHomeCount() {
         return displayedHomeCount.get();
     }
