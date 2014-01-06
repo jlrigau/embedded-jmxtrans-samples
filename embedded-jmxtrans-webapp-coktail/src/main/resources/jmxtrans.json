@@ -1,4 +1,15 @@
 {
+    "queries": [
+        {
+            "objectName": "cocktail:type=CocktailController,name=CocktailController",
+            "resultAlias": "cocktail",
+            "attributes": [
+                "DisplayedCocktailCount",
+                "SearchedCocktailCount",
+                "DisplayedHomeCount"
+            ]
+        }
+    ],
     "outputWriters": [
         {
             "@class": "org.jmxtrans.embedded.output.Slf4jWriter",

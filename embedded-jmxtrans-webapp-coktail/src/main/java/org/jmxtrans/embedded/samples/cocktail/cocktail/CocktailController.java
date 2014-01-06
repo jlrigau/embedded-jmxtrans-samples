@@ -142,7 +142,7 @@ public class CocktailController {
         return updatedCocktailCount.get();
     }
 
-    @ManagedMetric(metricType = MetricType.COUNTER)
+    @ManagedMetric(metricType = MetricType.GAUGE)
     public int getDisplayedHomeCount() {
         return displayedHomeCount.get();
     }
