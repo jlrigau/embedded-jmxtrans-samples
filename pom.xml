@@ -25,18 +25,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.jmxtrans.embedded.samples</groupId>
-        <artifactId>embedded-jmxtrans-samples</artifactId>
-        <version>1.0.9-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
-    </parent>
+    <groupId>org.jmxtrans.embedded.samples</groupId>
     <artifactId>cocktail-app</artifactId>
+    <version>1.0.9-SNAPSHOT</version>
     <name>cocktail-app</name>
     <description>Embedded jmxtrans demo based on a cocktail app</description>
     <packaging>war</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <build.plugins.plugin.version>1.7</build.plugins.plugin.version>
     </properties>
     <dependencies>
         <dependency>
@@ -183,6 +180,7 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.1.0.v20131115</version>
                 <configuration>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                 </configuration>
