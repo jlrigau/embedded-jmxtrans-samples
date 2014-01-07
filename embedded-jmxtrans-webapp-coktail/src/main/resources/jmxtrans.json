@@ -87,11 +87,10 @@
     {
         "@class": "org.jmxtrans.embedded.output.GraphiteWriter",
         "settings": {
-            "host": "${graphite.host:localhost}",
-            "port": "${graphite.port:2003}",
-            "enabled": "${graphite.enabled:true}",
-            "namePrefix": "${graphite.namePrefix:servers.#hostname#.}"
-        }
+           "host": "io-graphite-monitoring.aws.xebiatechevent.info",
+           "port": "2003",
+           "enabled": "true",
+           "namePrefix": "stats"
     },
     {
         "@class": "org.jmxtrans.embedded.output.LibratoWriter",
