@@ -17,7 +17,6 @@
                     "resultAlias": "sales.revenueInCentsCounter"
                 }
             ]
-
         },
         {
             "objectName": "cocktail:type=CocktailController,name=CocktailController",
@@ -30,24 +29,25 @@
                 "SearchedCocktailCount",
                 "UpdatedCocktailCount"
             ]
-
         }
-    ], "outputWriters": [
-    {
-        "@class": "org.jmxtrans.embedded.output.Slf4jWriter",
-        "settings": {
-            "enabled": "${jmxtrans.writer.slf4j.enabled:true}"
+    ],
+    "outputWriters": [
+        {
+            "@class": "org.jmxtrans.embedded.output.Slf4jWriter",
+            "settings": {
+                "enabled": "${jmxtrans.writer.slf4j.enabled:true}"
+            }
+        },
+        {
+            "@class": "org.jmxtrans.embedded.output.GraphiteWriter",
+            "settings": {
+                "host": "io-graphite-monitoring.aws.xebiatechevent.info",
+                "port": "2003",
+                "enabled": "true",
+                "namePrefix": "stats"
+            }
         }
-    },
-    {
-        "@class": "org.jmxtrans.embedded.output.GraphiteWriter",
-        "settings": {
-           "host": "io-graphite-monitoring.aws.xebiatechevent.info",
-           "port": "2003",
-           "enabled": "true",
-           "namePrefix": "stats"
-    }
-],
+    ],
     "queryIntervalInSeconds": "${jmxtrans.queryIntervalInSeconds:30}",
     "numQueryThreads": "${jmxtrans.numQueryThreads:2}",
     "numExportThreads": "${jmxtrans.numExportThreads:2}",
