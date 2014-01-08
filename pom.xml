@@ -153,6 +153,11 @@
             <version>1.9.5</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jmxtrans.embedded</groupId>
+            <artifactId>embedded-jmxtrans</artifactId>
+            <version>1.0.9-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
