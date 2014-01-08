@@ -43,15 +43,26 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author <a href="mailto:cleclerc@xebia.fr">Cyrille Le Clerc</a>
  */
+@ManagedResource("cocktail:type=CocktailController,name=CocktailController")
 @Controller
 public class CocktailController {
+
     private final Logger logger = LoggerFactory.getLogger(getClass());
+
+    private final AtomicInteger displayedHomeCount = new AtomicInteger();
 
     @Autowired
     private CocktailRepository cocktailRepository;
 
+    @ManagedMetric(metricType = MetricType.GAUGE)
+    public int getDisplayedHomeCount() {
+        return displayedHomeCount.get();
+    }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home() {
+        displayedHomeCount.incrementAndGet();
+
         return "welcome";
     }
 

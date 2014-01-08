@@ -1,4 +1,13 @@
 {
+    "queries": [
+        {
+            "objectName": "cocktail:type=CocktailController,name=CocktailController",
+            "resultAlias": "cocktail",
+            "attributes": [
+                "DisplayedHomeCount"
+            ]
+        }
+    ],
     "outputWriters": [
         {
             "@class": "org.jmxtrans.embedded.output.Slf4jWriter",
