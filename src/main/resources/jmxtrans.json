@@ -41,7 +41,7 @@
         {
             "@class": "org.jmxtrans.embedded.output.GraphiteWriter",
             "settings": {
-                "host": "io-graphite-monitoring.aws.xebiatechevent.info",
+                "host": "autonoe-graphite-monitoring.aws.xebiatechevent.info",
                 "port": "2003",
                 "enabled": "true",
                 "namePrefix": "stats"
